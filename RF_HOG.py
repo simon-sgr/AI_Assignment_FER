@@ -135,6 +135,47 @@ def train_and_evaluate_model(train_folder, test_folder, model, orientations=9, p
     # grid_search.fit(x_train_features, y_train)
     # print("Best parameters:", grid_search.best_params_)
 
+    # if hasattr(model, 'feature_importances_'):
+    #     gini_importance = model.feature_importances_
+    #     # Sort feature importance in descending order
+    #     sorted_idx = np.argsort(gini_importance)[::-1]
+    #     sorted_importance = gini_importance[sorted_idx]
+    #
+    #     feature_importance_df = pd.DataFrame({
+    #         'Feature Index': sorted_idx,
+    #         'Gini Importance': sorted_importance
+    #     })
+    #
+    #     plt.figure(figsize=(10, 6))
+    #     plt.bar(range(len(sorted_importance)), sorted_importance, align='center')
+    #     plt.xlabel('Feature Index')
+    #     plt.ylabel('Gini Importance')
+    #     plt.title('Feature Importance from Random Forest')
+    #     plt.show()
+    #
+    # else:
+    #     gini_importance = None
+    #     print("Model does not provide feature importances.")
+
+    # from sklearn.metrics import roc_auc_score, classification_report
+    # if hasattr(model, "predict_proba"):
+    #     y_prob = model.predict_proba(x_test_features)
+    #     if len(class_labels) > 2:
+    #         roc_auc = roc_auc_score(y_test, y_prob, multi_class='ovr')
+    #     else:
+    #         roc_auc = roc_auc_score(y_test, y_prob[:, 1])
+    # else:
+    #     roc_auc = None
+    #
+    # print("Classification Report:")
+    # print(classification_report(y_test, y_pred))
+    #
+    # print(f"Accuracy: {accuracy:.4f}")
+    # if roc_auc is not None:
+    #     print(f"ROC-AUC: {roc_auc:.4f}")
+    # else:
+    #     print("ROC-AUC: Not available (model does not support probability predictions)")
+
     return accuracy, conf_matrix_df
 
 
